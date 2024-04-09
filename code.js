@@ -1,49 +1,36 @@
 /**
- * 
- * @param {number[]} a 
+ * @param {number[]} arr
  * @returns {boolean}
  */
-function check(a){
-    let sorted = true;
-
-    for(let i = 0; i < a.length; i++){
-        if(a[i + 1] < a[i]){
-            sorted = false;
-            break;
+function isSorted(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i + 1] < arr[i]) {
+            return false;
         }
     }
-    
-    return sorted;
+    return true;
 }
 
 /**
- * @param {number[]} a 
- * @returns {number} count
+ * @param {number[]} arr
+ * @returns {number}
  */
-function permutationSort(a) {
+function permutationSort(arr) {
     let count = 0;
-    let sorted = false;
 
-    function permutations(a, i) {
-        if (i === a.length - 1) {
+    function generatePermutations(arr, startIndex) {
+        if (startIndex === arr.length - 1) {
             count++;
-
-            sorted = check(a);
-            if(sorted) return count;   
+            if (isSorted(arr)) return count;
         }
 
-        for(let j = i; j < a.length; j++){
-            // gen new permutation
-            [a[i], a[j]] = [a[j], a[i]];
-            permutations(a, i + 1);
-
-            if(sorted) return count;
-
-            // swap back
-            [a[j], a[i]] = [a[i], a[j]];
+        for (let i = startIndex; i < arr.length; i++) {
+            [arr[startIndex], arr[i]] = [arr[i], arr[startIndex]]; // Swap elements
+            generatePermutations(arr, startIndex + 1);
+            [arr[i], arr[startIndex]] = [arr[startIndex], arr[i]]; // Restore order.
         }
     }
 
-    permutations(a, 0);
+    generatePermutations(arr, 0);
     return count;
 }
