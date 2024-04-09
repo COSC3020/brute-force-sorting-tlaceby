@@ -1,5 +1,4 @@
 /**
- * 
  * @param {number[]} a 
  * @returns {boolean}
  */

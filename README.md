@@ -21,3 +21,9 @@ randomly without memory instead of systematically trying them?
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+**Solution**
+
+The **best-case** scenario is when the array is already sorted. In this case, the function will only generate one permutation, and the check function will return true in the first iteration. Therefore, the best-case input would be an already sorted array in ascending order.  The best case scenario would yield a runtime complexity of $\Theta(n)$ as the check function would still need to iterate $n$ times.
+
+The **worst-case** scenario is when the array is given in a descending order. This would require $n!$ iterations where for each of one we must iterate another $n$ times in the check function. This would yeid a total runtime complexity of $\Theta(n \times n!)$.
