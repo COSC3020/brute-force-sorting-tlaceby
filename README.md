@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/7eEMzrNd)
+
 # Brute-Force Sorting
 
 We talked about the complexity of the sorting problem, and used an argument over
@@ -20,3 +22,17 @@ randomly without memory instead of systematically trying them?
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+**Solution**
+
+The **best-case** scenario is when the array is already sorted. In this case, the function will only generate one permutation, and the check function will return true in the first iteration. Therefore, the best-case input would be an already sorted array in ascending order. The best-case scenario would yield a runtime complexity of $\Theta(n)$ as the check function would still need to iterate $n$ times.
+
+The **worst-case** scenario is when the array is given in descending order. This would require $n!$ iterations where for each one we must iterate another $n$ times in the check function. This would yield a total runtime complexity of $\Theta(n \times n!)$.
+
+If I had to generate permutations randomly, I would say this runtime would be infinite. It would never be sorted unless the random permutation was sorted. However since we're assuming true randomness, this would happen less and less likely.
+
+As the size of the array gets larger n approaches infinity. As n -> infinity, the chance of getting one sorted array at random approaches 0.
+
+## Resources
+
+I worked with Zach on this problem. He was able to guide me onto the solution.
